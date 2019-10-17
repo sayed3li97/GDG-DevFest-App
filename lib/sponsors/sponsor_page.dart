@@ -11,28 +11,67 @@ class SponsorPage extends StatelessWidget {
     return DevScaffold(
       body: ListView(
         children: <Widget>[
-          SponsorImage(
-            imgUrl: "https://devfest.gdgkolkata.org/assets/img/logos/gd.png",
+          Padding(
+            padding: EdgeInsets.all(10),
+            // alignment: Alignment.center,
+            child: Align(
+              alignment: Alignment.center,
+              child: Text("Headliner", 
+              style: TextStyle(
+            fontSize: 30,
+            fontWeight: FontWeight.bold,
           ),
-          SizedBox(
-            height: 30,
+          ),
+          ),
           ),
           SponsorImage(
-            imgUrl: "https://devfest.gdgkolkata.org/assets/img/jetbrains.png",
+            imgUrl: "http://imake-apps.com/devfestbahrain/img/sponsers/edblogo.png",
+          ),
+          // SizedBox(
+          //   height: 30,
+          // ),
+          Padding(
+            padding: EdgeInsets.all(10),
+            // alignment: Alignment.center,
+            child: Align(
+              alignment: Alignment.center,
+              child: Text("Sponsor", 
+              style: TextStyle(
+            fontSize: 30,
+            fontWeight: FontWeight.bold,
+          ),
+          ),
+          ),
+          ),
+          SponsorImage(
+            imgUrl: "http://imake-apps.com/devfestbahrain/img/sponsers/VIVA_Eng%20Logo.jpg",
+          ),
+          // SizedBox(
+          //   height: 30,
+          // ),
+          Padding(
+            padding: EdgeInsets.all(10),
+            // alignment: Alignment.center,
+            child: Align(
+              alignment: Alignment.center,
+              child: Text("Parteners", 
+              style: TextStyle(
+            fontSize: 30,
+            fontWeight: FontWeight.bold,
+          ),
+          ),
+          ),
+          ),
+          SponsorImage(
+            imgUrl:
+                "http://imake-apps.com/devfestbahrain/img/sponsers/StartUp-Bahrain-Logo.png",
           ),
           SizedBox(
             height: 30,
           ),
           SponsorImage(
             imgUrl:
-                "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Kotlin-logo.svg/220px-Kotlin-logo.svg.png",
-          ),
-          SizedBox(
-            height: 30,
-          ),
-          SponsorImage(
-            imgUrl:
-                "https://images.g2crowd.com/uploads/product/image/large_detail/large_detail_0016c93c710cf35990b999cba3a59bae/firebase.png",
+                "http://imake-apps.com/devfestbahrain/img/sponsers/majra-orange.png",
           )
         ],
       ),

@@ -106,12 +106,12 @@ class HomeFront extends StatelessWidget {
             onPressed: () =>
                 Navigator.pushNamed(context, SpeakerPage.routeName),
           ),
-          ActionCard(
-            icon: Icons.people,
-            color: Colors.amber,
-            title: Devfest.team_text,
-            onPressed: () => Navigator.pushNamed(context, TeamPage.routeName),
-          ),
+          // ActionCard(
+          //   icon: Icons.people,
+          //   color: Colors.amber,
+          //   title: Devfest.team_text,
+          //   onPressed: () => Navigator.pushNamed(context, TeamPage.routeName),
+          // ),
           ActionCard(
             icon: Icons.attach_money,
             color: Colors.purple,
@@ -119,12 +119,12 @@ class HomeFront extends StatelessWidget {
             onPressed: () =>
                 Navigator.pushNamed(context, SponsorPage.routeName),
           ),
-          ActionCard(
-            icon: Icons.question_answer,
-            color: Colors.brown,
-            title: Devfest.faq_text,
-            onPressed: () => Navigator.pushNamed(context, FaqPage.routeName),
-          ),
+          // ActionCard(
+          //   icon: Icons.question_answer,
+          //   color: Colors.brown,
+          //   title: Devfest.faq_text,
+          //   onPressed: () => Navigator.pushNamed(context, FaqPage.routeName),
+          // ),
           ActionCard(
             icon: Icons.map,
             color: Colors.blue,
@@ -181,6 +181,57 @@ class HomeFront extends StatelessWidget {
         ),
       );
 
+
+Widget socialActionsHome(context) => FittedBox(
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: <Widget>[
+            IconButton(
+              icon: Icon(FontAwesomeIcons.instagram),
+              onPressed: () async {
+                await _launchURL("https://www.instagram.com/gdgmanama/");
+              },
+            ),
+            IconButton(
+              icon: Icon(FontAwesomeIcons.facebookF),
+              onPressed: () async {
+                await _launchURL("https://www.facebook.com/GDGManama/?hc_ref=ARSHso-vNs85kFrdr-C1QkTESb0-0nSpyRYxoSiM2_nRYxhaDcjiMN46zzZn0VFfAf0&fref=nf&__xts__%5B0%5D=68.ARBxuwGcX2ZcX3k9_jpf25qoVsehpQ93iOa9GimPPIoZ8wFaiBtDeAkXLdEmoHnGscLedXgrskWSbhNW3qU2D5hz4Z-kPN2SXFaHN-Ho4_WvDjfzHivq_bTf2pNDlGm7XIADWIyKlXPoZ31DMSsGU-kAFYH2E9dSEN54xwZaim7u-cyeMPsJmIx0MPaMJyYTiqF_6D0zKxmZ1Ce0xGMQWEECPcDOaYXfbDJ5STaUcu0T5N2FoCF83XlXBDNC-7tfNKslC3L272LZborTeS--_cqXulMCWO-7aPRCr_sMZCshc_SY3GAYpfdVOoQ_7R6hwpBwnHsI6prZjWwLRF9M4U0&__tn__=kC-R");
+              },
+            ),
+            IconButton(
+              icon: Icon(FontAwesomeIcons.twitter),
+              onPressed: () async {
+                await _launchURL("https://twitter.com/GdgManama");
+              },
+            ),
+            IconButton(
+              icon: Icon(FontAwesomeIcons.linkedinIn),
+              onPressed: () async {
+                _launchURL("https://www.linkedin.com/company/gdg-manama/");
+              },
+            ),
+            
+            // IconButton(
+            //   icon: Icon(FontAwesomeIcons.youtube),
+            //   onPressed: () async {
+            //     await _launchURL("https://youtube.com/mtechviral");
+            //   },
+            // ),
+            IconButton(
+              icon: Icon(FontAwesomeIcons.meetup),
+              onPressed: () async {
+                await _launchURL("https://www.meetup.com/GDG-Manama/");
+              },
+            ),
+           IconButton(
+              icon: Icon(FontAwesomeIcons.chrome),
+              onPressed: () async {
+                _launchURL("http://devfestbahrain.com/");
+              },
+            ),
+          ],
+        ),
+      );
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -205,7 +256,7 @@ class HomeFront extends StatelessWidget {
             SizedBox(
               height: 20,
             ),
-            socialActions(context),
+            socialActionsHome(context),
             SizedBox(
               height: 20,
             ),

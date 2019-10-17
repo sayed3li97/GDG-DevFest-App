@@ -10,6 +10,7 @@ import 'package:flutter_devfest/universal/dev_scaffold.dart';
 import 'package:flutter_devfest/utils/tools.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class SpeakerPage extends StatelessWidget {
   static const String routeName = "/speakers";
@@ -57,6 +58,8 @@ class SpeakerPage extends StatelessWidget {
           ],
         ),
       );
+
+
   @override
   Widget build(BuildContext context) {
     var _homeBloc = HomeBloc();
@@ -125,7 +128,7 @@ class SpeakerPage extends StatelessWidget {
                             speakers[i].speakerSession,
                             style: Theme.of(context).textTheme.caption,
                           ),
-                          socialActions(context, speakers[i]),
+                          // socialActions(context, speakers[i]),
                         ],
                       ),
                     )
@@ -138,4 +141,105 @@ class SpeakerPage extends StatelessWidget {
       title: "Speakers",
     );
   }
+
+//  @override
+//   Widget build(BuildContext context) {
+//     // var _homeBloc = HomeBloc();
+//     // var state = _homeBloc.currentState as InHomeState;
+//     // var speakers = state.speakersData.speakers;
+//     // return DevScaffold(
+//     //               title: "Speakers",
+//     //               body: 
+
+//      return StreamBuilder<QuerySnapshot>(
+//         stream: Firestore.instance.collection('speakers').snapshots(),
+//         builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+//           if (snapshot.hasError)
+//             return new Text('Error: ${snapshot.error}');
+//           switch (snapshot.connectionState) {
+//             case ConnectionState.waiting: return Center(child: CircularProgressIndicator(),);
+//             default:
+//               return new ListView(
+//                 padding: EdgeInsets.only(bottom: 80),
+//                 children: snapshot.data.documents.map((DocumentSnapshot speakers) {
+//                    Card(
+//                   elevation: 0.0,
+//                   child: Padding(
+//                     padding: const EdgeInsets.all(12.0),
+//                     child: Row(
+//                   mainAxisSize: MainAxisSize.min,
+//                   children: <Widget>[
+//                     ConstrainedBox(
+//                       constraints: BoxConstraints.expand(
+//                         height: MediaQuery.of(context).size.height * 0.2,
+//                         width: MediaQuery.of(context).size.width * 0.3,
+//                       ),
+//                       child: CachedNetworkImage(
+//                         fit: BoxFit.cover,
+//                         imageUrl: speakers["speaker_image"],
+//                       ),
+//                     ),
+//                     SizedBox(
+//                       width: 20,
+//                     ),
+//                     Expanded(
+//                       child: Column(
+//                         crossAxisAlignment: CrossAxisAlignment.start,
+//                         mainAxisAlignment: MainAxisAlignment.start,
+//                         mainAxisSize: MainAxisSize.min,
+//                         children: <Widget>[
+//                           Column(
+//                             crossAxisAlignment: CrossAxisAlignment.start,
+//                             mainAxisSize: MainAxisSize.min,
+//                             children: <Widget>[
+//                               Text(
+//                                 speakers["speaker_name"],
+//                                 style: Theme.of(context).textTheme.title,
+//                               ),
+//                               SizedBox(
+//                                 height: 5,
+//                               ),
+//                               AnimatedContainer(
+//                                 duration: Duration(seconds: 1),
+//                                 width: MediaQuery.of(context).size.width * 0.2,
+//                                 height: 5,
+//                                 color: Tools.multiColors[Random().nextInt(4)],
+//                               ),
+//                             ],
+//                           ),
+//                           SizedBox(
+//                             height: 10,
+//                           ),
+//                           Text(
+//                             speakers["speaker_desc"],
+//                             style: Theme.of(context).textTheme.subtitle,
+//                           ),
+//                           SizedBox(
+//                             height: 10,
+//                           ),
+//                           Text(
+//                             speakers["speaker_session"],
+//                             style: Theme.of(context).textTheme.caption,
+//                           ),
+//                           // socialActions(context, speakers),
+//                         ],
+//                       ),
+//                     )
+//                   ],
+//                 )),
+//           );
+            
+//                 }).toList(),
+//               );
+
+
+//           }
+//         },
+//       //  )
+//       );
+
+//   }
+
+
+
 }

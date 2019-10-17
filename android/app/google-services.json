@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "522123670428",
+    "firebase_url": "https://gdg-devfest-b92ee.firebaseio.com",
+    "project_id": "gdg-devfest-b92ee",
+    "storage_bucket": "gdg-devfest-b92ee.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:522123670428:android:7d396e7fb74efd0a01ce59",
+        "android_client_info": {
+          "package_name": "com.example.flutter_devfest"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "522123670428-nbqisd97jt19clhamgt1q6vikpjjhknb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCTJhBFovmcunGpxiseT43dMLssuZVKY5A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "522123670428-nbqisd97jt19clhamgt1q6vikpjjhknb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

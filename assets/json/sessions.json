@@ -4,11 +4,11 @@
       "session_id": "1",
       "session_start_time": "9:00 AM",
       "session_total_time": "30 Mins",
-      "session_title": "DevByte: From Zero to ML on Google Cloud Platform",
-      "session_desc": "The async/await feature allows you to write the asynchronous code in a straightforward way without a long list of callbacks. Used in C# for quite a while already, it has proven to be extremely useful.In Kotlin you have async and await as library functions implemented using coroutines. A coroutine is a light-weight thread that can be suspended and resumed later. Very precise definition, but might be confusing at first. What 'light-weight thread' means? How does suspension work? This talk uncovers the magic. We'll discuss the concept of coroutines, the power of async/await, and how you can benefit from defining your asynchronous computations using suspend function. The content of this video was not produced or created by Google.",
+      "session_title": "Registration",
+      "session_desc": "",
       "speaker_image": "https://avatars1.githubusercontent.com/u/12619420?s=400&u=eac38b075e4e4463edfb0f0a8972825cf7803d4c&v=4",
-      "speaker_name": "Max Saltonstall",
-      "speaker_desc": "Cloud Developer Advocate, Google DevByte speaker",
+      "speaker_name": "",
+      "speaker_desc": "",
       "track": "cloud"
     },
     {

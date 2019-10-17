@@ -19,50 +19,137 @@ class AgendaPage extends StatelessWidget {
       length: 3,
       child: DevScaffold(
         title: "Agenda",
-        tabBar: TabBar(
-          indicatorSize: TabBarIndicatorSize.label,
-          indicatorColor: Tools.multiColors[Random().nextInt(4)],
-          labelStyle: TextStyle(
-            fontSize: 12,
-          ),
-          isScrollable: false,
-          tabs: <Widget>[
-            Tab(
-              child: Text("Cloud"),
-              icon: Icon(
-                FontAwesomeIcons.cloud,
-                size: 12,
-              ),
-            ),
-            Tab(
-              child: Text("Mobile"),
-              icon: Icon(
-                FontAwesomeIcons.mobile,
-                size: 12,
-              ),
-            ),
-            Tab(
-              child: Text("Web & More"),
-              icon: Icon(
-                FontAwesomeIcons.chrome,
-                size: 12,
-              ),
-            )
-          ],
-        ),
-        body: TabBarView(
+        // tabBar: TabBar(
+        //   indicatorSize: TabBarIndicatorSize.label,
+        //   indicatorColor: Tools.multiColors[Random().nextInt(4)],
+        //   labelStyle: TextStyle(
+        //     fontSize: 12,
+        //   ),
+          // isScrollable: false,
+          // tabs: <Widget>[
+          //   Tab(
+          //     child: Text("Cloud"),
+          //     icon: Icon(
+          //       FontAwesomeIcons.cloud,
+          //       size: 12,
+          //     ),
+          //   ),
+          //   Tab(
+          //     child: Text("Mobile"),
+          //     icon: Icon(
+          //       FontAwesomeIcons.mobile,
+          //       size: 12,
+          //     ),
+          //   ),
+          //   Tab(
+          //     child: Text("Web & More"),
+          //     icon: Icon(
+          //       FontAwesomeIcons.chrome,
+          //       size: 12,
+          //     ),
+          //   )
+          // ],
+        // ),
+        body: ListView(
           children: <Widget>[
-            CloudScreen(
-              homeBloc: _homeBloc,
+            ListTile(
+              title: Text("Registration"),
+              trailing: Text("9:00 AM"),
             ),
-            MobileScreen(
-              homeBloc: _homeBloc,
+            Divider(),
+             ListTile(
+              title: Text("Welcome Speech"),
+              subtitle: Text("Lana Alattar"),
+              trailing: Text("9:30 AM"),
             ),
-            WebScreen(
-              homeBloc: _homeBloc,
+             Divider(),
+             ListTile(
+              title: Text("EDB Keynote"),
+              subtitle: Text("Lana Alattar"),
+              trailing: Text("9:45 AM"),
+            ),
+            Divider(),
+             ListTile(
+              title: Text("Viva Speech "),
+              // subtitle: Text("Lana Alattar"),
+              trailing: Text("10:00 AM"),
+            ),
+            Divider(),
+             ListTile(
+              title: Text("Rules & Guidlines"),
+              // subtitle: Text("Lana Alattar"),
+              trailing: Text("10:30 AM"),
+            ),
+            Divider(),
+             ListTile(
+              title: Text("Google Cloud Platform Workshop"),
+              // subtitle: Text("Lana Alattar"),
+              trailing: Text("11:00 AM"),
+            ),
+             Divider(),
+             ListTile(
+              title: Text("Gsuite Essentials Workshop"),
+              // subtitle: Text("Lana Alattar"),
+              trailing: Text("12:00 PM"),
+            ),
+             Divider(),
+             ListTile(
+              title: Text("Lunch Break"),
+              // subtitle: Text("Lana Alattar"),
+              trailing: Text("01:00 PM"),
+            ),
+            Divider(),
+             ListTile(
+              title: Text("Intro to ML: Language Processing Workshop"),
+              subtitle: Text("Habiba Maher"),
+              trailing: Text("03:00 PM"),
+            ),
+            Divider(),
+             ListTile(
+              title: Text("Google Developer Essentials Workshop"),
+              // subtitle: Text("Habiba Maher"),
+              trailing: Text("04:00 PM"),
+            ),
+            Divider(),
+             ListTile(
+              title: Text("Machine Learning Workshop"),
+              subtitle: Text("Faris Rahman"),
+              trailing: Text("05:00 PM"),
+            ),
+             Divider(),
+             ListTile(
+              title: Text("Self-Branding For Techies: Telling the world how Awesome you are! – Tentative"),
+              subtitle: Text("Lana Alattar"),
+              trailing: Text("06:00 PM"),
+            ),
+             Divider(),
+             ListTile(
+              title: Text("Closing and Sponsor Awards"),
+              // subtitle: Text("Lana Alattar"),
+              trailing: Text("07:00 PM"),
+            ),
+             Divider(),
+             ListTile(
+              title: Text("Announcing Most Badges"),
+              // subtitle: Text("Lana Alattar"),
+              trailing: Text("07:30 PM"),
             ),
           ],
-        ),
+        )
+        // body: TabBarView(
+        //   children: <Widget>[
+        //     CloudScreen(
+        //       homeBloc: _homeBloc,
+        //     ),
+        //     MobileScreen(
+        //       homeBloc: _homeBloc,
+        //     ),
+        //     WebScreen(
+        //       homeBloc: _homeBloc,
+        //     ),
+        //   ],
+        // ),
+
       ),
     );
   }
