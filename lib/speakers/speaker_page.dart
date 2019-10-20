@@ -10,7 +10,7 @@ import 'package:flutter_devfest/universal/dev_scaffold.dart';
 import 'package:flutter_devfest/utils/tools.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
+// import 'package:cloud_firestore/cloud_firestore.dart';
 
 class SpeakerPage extends StatelessWidget {
   static const String routeName = "/speakers";
