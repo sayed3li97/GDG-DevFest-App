@@ -127,6 +127,12 @@ class HomeFront extends StatelessWidget {
           //   onPressed: () => Navigator.pushNamed(context, FaqPage.routeName),
           // ),
           ActionCard(
+            icon: Icons.camera,
+            color: Colors.red,
+            title: "QR Reader",
+            onPressed: () => Navigator.pushNamed(context, ScanScreen.routeName),
+          ),
+          ActionCard(
             icon: Icons.map,
             color: Colors.blue,
             title: Devfest.map_text,
