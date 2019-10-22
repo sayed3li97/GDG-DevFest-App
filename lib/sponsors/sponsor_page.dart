@@ -20,7 +20,7 @@ class SponsorPage extends StatelessWidget {
               style: TextStyle(
             fontSize: 30,
             fontWeight: FontWeight.bold,
-          ),
+            ),
           ),
           ),
           ),

@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 class ScanScreen extends StatefulWidget {
-  static const String routeName = "/scanScreen";
+  static const String routeName = "/scan";
   @override
   _ScanState createState() => new _ScanState();
 }
