@@ -71,7 +71,8 @@ class _ConfigPageState extends State<ConfigPage> {
               FaqPage.routeName: (context) => FaqPage(),
               FindDevFestPage.routeName: (context) => FindDevFestPage(),
               MapPage.routeName: (context) => MapPage(),
-               ScanScreen.routeName: (context) => ScanScreen(),
+              ScanScreen.routeName: (context) => ScanScreen(),
+
             },
           );
         },

@@ -23,11 +23,11 @@ class HomeFront extends StatelessWidget {
         SizedBox(
           height: 10,
         ),
-        Text(
-          Devfest.descText,
-          style: Theme.of(context).textTheme.caption,
-          textAlign: TextAlign.center,
-        ),
+        // Text(
+        //   Devfest.descText,
+        //   style: Theme.of(context).textTheme.caption,
+        //   textAlign: TextAlign.center,
+        // ),
       ];
 
   _launchURL(String url) async {
@@ -137,6 +137,12 @@ class HomeFront extends StatelessWidget {
             color: Colors.blue,
             title: Devfest.map_text,
             onPressed: () => Navigator.pushNamed(context, MapPage.routeName),
+          ),
+          ActionCard(
+            icon: Icons.camera,
+            color: Colors.purple,
+            title: Devfest.qr_text,
+            onPressed: () => Navigator.pushNamed(context, ScanScreen.routeName),
           )
         ],
       );

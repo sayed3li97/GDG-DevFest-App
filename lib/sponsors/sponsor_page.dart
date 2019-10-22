@@ -20,12 +20,13 @@ class SponsorPage extends StatelessWidget {
               style: TextStyle(
             fontSize: 30,
             fontWeight: FontWeight.bold,
-          ),
+            ),
           ),
           ),
           ),
           SponsorImage(
             imgUrl: "http://imake-apps.com/devfestbahrain/img/sponsers/edblogo.png",
+            imgHieght: 200,
           ),
           // SizedBox(
           //   height: 30,
@@ -45,6 +46,7 @@ class SponsorPage extends StatelessWidget {
           ),
           SponsorImage(
             imgUrl: "http://imake-apps.com/devfestbahrain/img/sponsers/VIVA_Eng%20Logo.jpg",
+            imgHieght: 200,
           ),
           // SizedBox(
           //   height: 30,
@@ -65,6 +67,7 @@ class SponsorPage extends StatelessWidget {
           SponsorImage(
             imgUrl:
                 "http://imake-apps.com/devfestbahrain/img/sponsers/StartUp-Bahrain-Logo.png",
+                imgHieght: 80,
           ),
           SizedBox(
             height: 30,
@@ -72,6 +75,7 @@ class SponsorPage extends StatelessWidget {
           SponsorImage(
             imgUrl:
                 "http://imake-apps.com/devfestbahrain/img/sponsers/majra-orange.png",
+                imgHieght: 100,
           )
         ],
       ),
@@ -82,8 +86,9 @@ class SponsorPage extends StatelessWidget {
 
 class SponsorImage extends StatelessWidget {
   final String imgUrl;
+  final double imgHieght;
 
-  const SponsorImage({Key key, this.imgUrl}) : super(key: key);
+  const SponsorImage({Key key, this.imgUrl, this.imgHieght}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Card(
@@ -92,8 +97,8 @@ class SponsorImage extends StatelessWidget {
         padding: const EdgeInsets.all(12.0),
         child: CachedNetworkImage(
           imageUrl: imgUrl,
-          height: 200.0,
-          width: 200.0,
+          height: imgHieght,
+          // width: 200.0,
           fit: BoxFit.contain,
         ),
       ),
