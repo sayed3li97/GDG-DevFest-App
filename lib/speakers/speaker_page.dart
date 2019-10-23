@@ -59,87 +59,177 @@ class SpeakerPage extends StatelessWidget {
         ),
       );
 
+Widget streamBuilderSpeakers() {
+    return  StreamBuilder<QuerySnapshot>(
+        stream: Firestore.instance.collection('speakers').snapshots(),
+        builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+          if (snapshot.hasError)
+            return new Text('Error: ${snapshot.error}');
+          switch (snapshot.connectionState) {
+            case ConnectionState.waiting: return Center(child: CircularProgressIndicator(),);
+            default:
+              return new ListView(
 
+                padding: EdgeInsets.only(bottom: 80),
+                children: snapshot.data.documents.map((DocumentSnapshot document) {
+                  return Card(
+                    elevation: 0.0,
+                    child: Padding(
+                        padding: const EdgeInsets.all(12.0),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: <Widget>[
+                            ConstrainedBox(
+                              constraints: BoxConstraints.expand(
+                                height: MediaQuery.of(context).size.height * 0.2,
+                                width: MediaQuery.of(context).size.width * 0.3,
+                              ),
+                              child: CachedNetworkImage(
+                                fit: BoxFit.cover,
+                                imageUrl: document['img'],
+                              ),
+                            ),
+                            SizedBox(
+                              width: 20,
+                            ),
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                mainAxisSize: MainAxisSize.min,
+                                children: <Widget>[
+                                  Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: <Widget>[
+                                      Text(
+                                        document['speakerName'],
+                                        style: Theme.of(context).textTheme.title,
+                                      ),
+                                      SizedBox(
+                                        height: 5,
+                                      ),
+                                      AnimatedContainer(
+                                        duration: Duration(seconds: 1),
+                                        width: MediaQuery.of(context).size.width * 0.2,
+                                        height: 5,
+                                        color: Tools.multiColors[Random().nextInt(4)],
+                                      ),
+                                    ],
+                                  ),
+                                  SizedBox(
+                                    height: 10,
+                                  ),
+                                  Text(
+                                    document['desc'],
+                                    style: Theme.of(context).textTheme.subtitle,
+                                  ),
+                                  SizedBox(
+                                    height: 10,
+                                  ),
+                                  Text(
+                                    document['session'],
+                                    style: Theme.of(context).textTheme.caption,
+                                  ),
+                                  // socialActions(context, speakers[i]),
+                                ],
+                              ),
+                            )
+                          ],
+                        )),
+                     );
+                }).toList(),
+              );
+          }
+        },
+      );
+  }
   @override
   Widget build(BuildContext context) {
     var _homeBloc = HomeBloc();
     var state = _homeBloc.currentState as InHomeState;
     var speakers = state.speakersData.speakers;
     return DevScaffold(
-      body: ListView.builder(
-        shrinkWrap: true,
-        itemBuilder: (c, i) {
-          return Card(
-            elevation: 0.0,
-            child: Padding(
-                padding: const EdgeInsets.all(12.0),
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: <Widget>[
-                    ConstrainedBox(
-                      constraints: BoxConstraints.expand(
-                        height: MediaQuery.of(context).size.height * 0.2,
-                        width: MediaQuery.of(context).size.width * 0.3,
-                      ),
-                      child: CachedNetworkImage(
-                        fit: BoxFit.cover,
-                        imageUrl: speakers[i].speakerImage,
-                      ),
-                    ),
-                    SizedBox(
-                      width: 20,
-                    ),
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        mainAxisSize: MainAxisSize.min,
-                        children: <Widget>[
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisSize: MainAxisSize.min,
-                            children: <Widget>[
-                              Text(
-                                speakers[i].speakerName,
-                                style: Theme.of(context).textTheme.title,
-                              ),
-                              SizedBox(
-                                height: 5,
-                              ),
-                              AnimatedContainer(
-                                duration: Duration(seconds: 1),
-                                width: MediaQuery.of(context).size.width * 0.2,
-                                height: 5,
-                                color: Tools.multiColors[Random().nextInt(4)],
-                              ),
-                            ],
-                          ),
-                          SizedBox(
-                            height: 10,
-                          ),
-                          Text(
-                            speakers[i].speakerDesc,
-                            style: Theme.of(context).textTheme.subtitle,
-                          ),
-                          SizedBox(
-                            height: 10,
-                          ),
-                          Text(
-                            speakers[i].speakerSession,
-                            style: Theme.of(context).textTheme.caption,
-                          ),
-                          // socialActions(context, speakers[i]),
-                        ],
-                      ),
-                    )
-                  ],
-                )),
-          );
-        },
-        itemCount: speakers.length,
-      ),
+      // body: ListView.builder(
+      //   shrinkWrap: true,
+      //   itemBuilder: (c, i) {
+      //     return Card(
+      //       elevation: 0.0,
+      //       child: Padding(
+      //           padding: const EdgeInsets.all(12.0),
+      //           child: Row(
+      //             mainAxisSize: MainAxisSize.min,
+      //             children: <Widget>[
+      //               ConstrainedBox(
+      //                 constraints: BoxConstraints.expand(
+      //                   height: MediaQuery.of(context).size.height * 0.2,
+      //                   width: MediaQuery.of(context).size.width * 0.3,
+      //                 ),
+      //                 child: CachedNetworkImage(
+      //                   fit: BoxFit.cover,
+      //                   imageUrl: speakers[i].speakerImage,
+      //                 ),
+      //               ),
+      //               SizedBox(
+      //                 width: 20,
+      //               ),
+      //               Expanded(
+      //                 child: Column(
+      //                   crossAxisAlignment: CrossAxisAlignment.start,
+      //                   mainAxisAlignment: MainAxisAlignment.start,
+      //                   mainAxisSize: MainAxisSize.min,
+      //                   children: <Widget>[
+      //                     Column(
+      //                       crossAxisAlignment: CrossAxisAlignment.start,
+      //                       mainAxisSize: MainAxisSize.min,
+      //                       children: <Widget>[
+      //                         Text(
+      //                           speakers[i].speakerName,
+      //                           style: Theme.of(context).textTheme.title,
+      //                         ),
+      //                         SizedBox(
+      //                           height: 5,
+      //                         ),
+      //                         AnimatedContainer(
+      //                           duration: Duration(seconds: 1),
+      //                           width: MediaQuery.of(context).size.width * 0.2,
+      //                           height: 5,
+      //                           color: Tools.multiColors[Random().nextInt(4)],
+      //                         ),
+      //                       ],
+      //                     ),
+      //                     SizedBox(
+      //                       height: 10,
+      //                     ),
+      //                     Text(
+      //                       speakers[i].speakerDesc,
+      //                       style: Theme.of(context).textTheme.subtitle,
+      //                     ),
+      //                     SizedBox(
+      //                       height: 10,
+      //                     ),
+      //                     Text(
+      //                       speakers[i].speakerSession,
+      //                       style: Theme.of(context).textTheme.caption,
+      //                     ),
+      //                     // socialActions(context, speakers[i]),
+      //                   ],
+      //                 ),
+      //               )
+      //             ],
+      //           )),
+      //     );
+      //   },
+      //   itemCount: speakers.length,
+      // ),
+
+
+      body: streamBuilderSpeakers(),
       title: "Speakers",
     );
+
+
+    
   }
 
 //  @override

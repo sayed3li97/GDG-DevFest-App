@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_devfest/agenda/agenda_page.dart';
+import 'package:flutter_devfest/badges/badges_page.dart';
 import 'package:flutter_devfest/config/index.dart';
 import 'package:flutter_devfest/faq/faq_page.dart';
 import 'package:flutter_devfest/map/map_page.dart';
@@ -120,12 +121,12 @@ class HomeFront extends StatelessWidget {
             onPressed: () =>
                 Navigator.pushNamed(context, SponsorPage.routeName),
           ),
-          // ActionCard(
-          //   icon: Icons.question_answer,
-          //   color: Colors.brown,
-          //   title: Devfest.faq_text,
-          //   onPressed: () => Navigator.pushNamed(context, FaqPage.routeName),
-          // ),
+          ActionCard(
+            icon: Icons.camera_rear,
+            color: Colors.brown,
+            title: "Badges",
+            onPressed: () => Navigator.pushNamed(context, BadgesPage.routeName),
+          ),
           ActionCard(
             icon: Icons.camera,
             color: Colors.red,

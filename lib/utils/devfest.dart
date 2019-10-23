@@ -64,6 +64,7 @@ class Devfest {
   static const String sponsor_text = "Sponsors";
   static const String faq_text = "FAQ";
   static const String map_text = "Locate Us";
+  
 
   //* Preferences
   static SharedPreferences prefs;

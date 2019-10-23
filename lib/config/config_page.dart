@@ -11,6 +11,7 @@ import 'package:flutter_devfest/sponsors/sponsor_page.dart';
 import 'package:flutter_devfest/team/team_page.dart';
 import 'package:flutter_devfest/utils/devfest.dart';
 import 'package:flutter_devfest/qr/ScanScreen.dart';
+import 'package:flutter_devfest/badges/badges_page.dart';
 
 class ConfigPage extends StatefulWidget {
   static const String routeName = "/";
@@ -72,6 +73,7 @@ class _ConfigPageState extends State<ConfigPage> {
               FindDevFestPage.routeName: (context) => FindDevFestPage(),
               MapPage.routeName: (context) => MapPage(),
                ScanScreen.routeName: (context) => ScanScreen(),
+               BadgesPage.routeName: (context) => BadgesPage()
             },
           );
         },
