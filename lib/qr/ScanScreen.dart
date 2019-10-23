@@ -3,6 +3,8 @@ import 'dart:async';
 import 'package:barcode_scan/barcode_scan.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_devfest/config/config_bloc.dart';
+import 'package:flutter_devfest/universal/dev_scaffold.dart';
 
 class ScanScreen extends StatefulWidget {
   static const String routeName = "/scan";
@@ -20,10 +22,8 @@ class _ScanState extends State<ScanScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        appBar: new AppBar(
-          title: new Text('QR Code Scanner'),
-        ),
+    return DevScaffold(
+       title: "QR Reader",
         body: new Center(
           child: new Column(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -31,12 +31,24 @@ class _ScanState extends State<ScanScreen> {
             children: <Widget>[
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-                child: RaisedButton(
-                    color: Colors.blue,
-                    textColor: Colors.white,
-                    splashColor: Colors.blueGrey,
+                child:
+                
+                 RaisedButton(
+                   
+                   elevation: 0.0, 
+                    color:  ConfigBloc().darkModeOn ? Colors.black : Colors.white,
+                    textColor:  ConfigBloc().darkModeOn ?  Colors.white : Colors.black,
+                    // splashColor: Colors.blueGrey,
                     onPressed: scan,
-                    child: const Text('START CAMERA SCAN')
+                    child: Column(
+                      children: <Widget>[
+                        Icon(Icons.camera_alt, size: 200, color: ConfigBloc().darkModeOn ? Colors.white : Colors.red ,),
+                      Padding(
+                        padding: EdgeInsets.all(10),
+                        child: Text('Click to start camera scan'),
+                      )
+                      ],
+                    )
                 ),
               )
               ,
@@ -53,7 +65,10 @@ class _ScanState extends State<ScanScreen> {
   Future scan() async {
     try {
       String barcode = await BarcodeScanner.scan();
-      setState(() => this.barcode = barcode);
+      setState(() {
+      this.barcode = barcode;
+      }
+      );
     } on PlatformException catch (e) {
       if (e.code == BarcodeScanner.CameraAccessDenied) {
         setState(() {
@@ -63,7 +78,7 @@ class _ScanState extends State<ScanScreen> {
         setState(() => this.barcode = 'Unknown error: $e');
       }
     } on FormatException{
-      setState(() => this.barcode = 'null (User returned using the "back"-button before scanning anything. Result)');
+      setState(() => this.barcode = 'Nothing was detected');
     } catch (e) {
       setState(() => this.barcode = 'Unknown error: $e');
     }

@@ -8,9 +8,10 @@ class DevScaffold extends StatelessWidget {
   final String title;
   final Widget body;
   final Widget tabBar;
+  final bool homeIsavailable;
 
   const DevScaffold(
-      {Key key, @required this.body, @required this.title, this.tabBar})
+      {Key key, @required this.body, @required this.title, this.tabBar, this.homeIsavailable})
       : super(key: key);
   @override
   Widget build(BuildContext context) {
@@ -22,6 +23,7 @@ class DevScaffold extends StatelessWidget {
         bottom: false,
         child: Scaffold(
           appBar: AppBar(
+            
             title: Text(title),
             centerTitle: true,
             bottom: tabBar != null ? tabBar : null,
@@ -49,6 +51,7 @@ class DevScaffold extends StatelessWidget {
             ],
           ),
           body: body,
+        
         ),
       ),
     );

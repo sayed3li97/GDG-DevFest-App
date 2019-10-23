@@ -257,6 +257,28 @@ Widget socialActionsHome(context) => FittedBox(
               height: 20,
             ),
             ...devFestTexts(context),
+            Padding(
+              padding: EdgeInsets.only(top: 10),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: <Widget>[
+                
+                    RaisedButton(
+                    color: Colors.green,
+                    child: Text("Sign up ", style: TextStyle(color: Colors.white),),
+                    onPressed: (){},
+                  ),
+
+                  RaisedButton(
+                  color: Colors.blue,
+                  child: Text("log in ", style: TextStyle(color: Colors.white),),
+                  onPressed: (){},
+                ),
+                
+                ],
+              )
+            ),
             SizedBox(
               height: 20,
             ),

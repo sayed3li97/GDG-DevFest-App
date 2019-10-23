@@ -1,7 +1,11 @@
+import 'dart:math';
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_devfest/universal/dev_scaffold.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter_devfest/utils/tools.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class SponsorPage extends StatelessWidget {
   static const String routeName = "/sponsor";
@@ -12,7 +16,9 @@ class SponsorPage extends StatelessWidget {
           if (snapshot.hasError)
             return new Text('Error: ${snapshot.error}');
           switch (snapshot.connectionState) {
-            case ConnectionState.waiting: return Center(child: CircularProgressIndicator(),);
+            case ConnectionState.waiting: return Center(child: SpinKitChasingDots(
+                  color: Tools.multiColors[Random().nextInt(3)],
+                ));
             default:
               return new ListView(
 

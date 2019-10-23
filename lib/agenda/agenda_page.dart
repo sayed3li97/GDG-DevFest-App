@@ -7,6 +7,7 @@ import 'package:flutter_devfest/agenda/web_screen.dart';
 import 'package:flutter_devfest/home/index.dart';
 import 'package:flutter_devfest/universal/dev_scaffold.dart';
 import 'package:flutter_devfest/utils/tools.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
@@ -167,7 +168,9 @@ class AgendaPage extends StatelessWidget {
           if (snapshot.hasError)
             return new Text('Error: ${snapshot.error}');
           switch (snapshot.connectionState) {
-            case ConnectionState.waiting: return Center(child: CircularProgressIndicator(),);
+            case ConnectionState.waiting: return Center(child: SpinKitChasingDots(
+                  color: Tools.multiColors[Random().nextInt(3)],
+                ));
             default:
               return new ListView(
 

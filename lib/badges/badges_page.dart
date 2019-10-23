@@ -15,6 +15,8 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:http/http.dart' as http;
 import 'package:json_annotation/json_annotation.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
+
 
 
 class BadgesPage extends StatefulWidget {
@@ -67,18 +69,31 @@ Future<Post> fetchPost() async {
                       (
                         itemCount: Badges.length,
                         itemBuilder: (BuildContext ctxt, int index) {
+                          
                          return Padding(
                            padding: const EdgeInsets.all(8.0),
                            child: Card(
                              child: Column(
                                children: <Widget>[
-                                 if(Badges[index].img == null) ...{
-                                   Image.network("https://cdn.qwiklabs.com/q9i93WKutsZoBs3FojRVzENfFAkGO7SQ8vjbmNSgOCs%3D", height: 200,),
-                                 }else ...{
-                                    Image.network("Badges[index].img", height: 200,),
+                                 if (index == 0) ...{
+                                   Row(
+                                     crossAxisAlignment: CrossAxisAlignment.center,
+                                     mainAxisAlignment: MainAxisAlignment.center,
+                                     children: <Widget>[
+                                       Padding(
+                                         padding: EdgeInsets.all(10),
+                                         child: Text("Quests: " + snapshot.data.quests),
+                                       ),
+                                       Padding(
+                                         padding: EdgeInsets.all(10),
+                                         child: Text("Labs: " + snapshot.data.labs),
+                                       ),
+                                     ],
+                                   )
                                  },
-                                 new Text(Badges[index].name),
-                                 new Text(Badges[index].date)
+                                    Image.network(Badges[index].img, height: 200,),
+                                    Text(Badges[index].name),
+                                    Text(Badges[index].date)
                                ],
                              ),
                            ),
@@ -92,7 +107,9 @@ Future<Post> fetchPost() async {
               }
 
               // By default, show a loading spinner.
-              return CircularProgressIndicator();
+              return SpinKitChasingDots(
+                  color: Tools.multiColors[Random().nextInt(3)],
+                );
             },
           ),
         ),
@@ -136,12 +153,14 @@ class BadgeList{
 
 class Post {
   final String message;
+  final String quests;
+  final String labs;
   final int status;
   final List<Badge> badges; 
   // final String title;
   // final String body;
 
-  Post({this.message, this.status, this.badges});
+  Post({this.message, this.status, this.badges, this.labs, this.quests});
 
   factory Post.fromJson(Map<String, dynamic> json) {
     print("Badges = ");
@@ -151,6 +170,8 @@ class Post {
     return Post(
       message: json['Message'],
       status: json['Status'],
+      labs: json['Labs'],
+      quests: json['Quests'],
       badges:  badgeList.badges,
 
     );
