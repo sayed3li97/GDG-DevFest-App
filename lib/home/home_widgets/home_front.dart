@@ -11,6 +11,7 @@ import 'package:flutter_devfest/utils/devfest.dart';
 import 'package:flutter_devfest/utils/tools.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:flutter_devfest/qr/ScanScreen.dart';
 
 class HomeFront extends StatelessWidget {
   List<Widget> devFestTexts(context) => [
@@ -125,6 +126,12 @@ class HomeFront extends StatelessWidget {
           //   title: Devfest.faq_text,
           //   onPressed: () => Navigator.pushNamed(context, FaqPage.routeName),
           // ),
+          ActionCard(
+            icon: Icons.camera,
+            color: Colors.red,
+            title: "QR Reader",
+            onPressed: () => Navigator.pushNamed(context, ScanScreen.routeName),
+          ),
           ActionCard(
             icon: Icons.map,
             color: Colors.blue,

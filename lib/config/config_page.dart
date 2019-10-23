@@ -10,6 +10,7 @@ import 'package:flutter_devfest/speakers/speaker_page.dart';
 import 'package:flutter_devfest/sponsors/sponsor_page.dart';
 import 'package:flutter_devfest/team/team_page.dart';
 import 'package:flutter_devfest/utils/devfest.dart';
+import 'package:flutter_devfest/qr/ScanScreen.dart';
 
 class ConfigPage extends StatefulWidget {
   static const String routeName = "/";
@@ -70,6 +71,7 @@ class _ConfigPageState extends State<ConfigPage> {
               FaqPage.routeName: (context) => FaqPage(),
               FindDevFestPage.routeName: (context) => FindDevFestPage(),
               MapPage.routeName: (context) => MapPage(),
+               ScanScreen.routeName: (context) => ScanScreen(),
             },
           );
         },
