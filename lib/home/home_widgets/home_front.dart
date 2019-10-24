@@ -13,6 +13,7 @@ import 'package:flutter_devfest/utils/tools.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter_devfest/qr/ScanScreen.dart';
+import 'package:flutter_devfest/signup/login_page.dart';
 
 class HomeFront extends StatelessWidget {
   List<Widget> devFestTexts(context) => [
@@ -267,13 +268,17 @@ Widget socialActionsHome(context) => FittedBox(
                     RaisedButton(
                     color: Colors.green,
                     child: Text("Sign up ", style: TextStyle(color: Colors.white),),
-                    onPressed: (){},
+                    onPressed: (){
+                      Navigator.pushNamed(context, LoginPage.routeName);
+                    },
                   ),
 
                   RaisedButton(
                   color: Colors.blue,
                   child: Text("log in ", style: TextStyle(color: Colors.white),),
-                  onPressed: (){},
+                  onPressed: (){
+                    Navigator.pushNamed(context, LoginPage.routeName);
+                  },
                 ),
                 
                 ],

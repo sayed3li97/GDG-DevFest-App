@@ -2,6 +2,8 @@ import 'dart:async';
 import 'package:flutter_devfest/config/index.dart';
 import 'package:flutter_devfest/utils/devfest.dart';
 import 'package:meta/meta.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 
 @immutable
 abstract class ConfigEvent {

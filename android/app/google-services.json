@@ -8,6 +8,45 @@
   "client": [
     {
       "client_info": {
+        "mobilesdk_app_id": "1:522123670428:android:6b6eaeff26f4a3fc01ce59",
+        "android_client_info": {
+          "package_name": "com.devfestbahrain.flutter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "522123670428-nbqisd97jt19clhamgt1q6vikpjjhknb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCTJhBFovmcunGpxiseT43dMLssuZVKY5A"
+        },
+        {
+          "current_key": "AIzaSyCTJhBFovmcunGpxiseT43dMLssuZVKY5A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "522123670428-nbqisd97jt19clhamgt1q6vikpjjhknb.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "522123670428-d6v24li6vul2b7ugq26t3feut2m0eg9f.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.devfest.bahrain"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:522123670428:android:7d396e7fb74efd0a01ce59",
         "android_client_info": {
           "package_name": "com.example.flutter_devfest"
@@ -22,6 +61,9 @@
       "api_key": [
         {
           "current_key": "AIzaSyCTJhBFovmcunGpxiseT43dMLssuZVKY5A"
+        },
+        {
+          "current_key": "AIzaSyCTJhBFovmcunGpxiseT43dMLssuZVKY5A"
         }
       ],
       "services": {
@@ -30,6 +72,13 @@
             {
               "client_id": "522123670428-nbqisd97jt19clhamgt1q6vikpjjhknb.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "522123670428-d6v24li6vul2b7ugq26t3feut2m0eg9f.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.devfest.bahrain"
+              }
             }
           ]
         }

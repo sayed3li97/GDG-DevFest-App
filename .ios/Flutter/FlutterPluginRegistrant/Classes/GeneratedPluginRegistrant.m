@@ -16,6 +16,12 @@
 @import cloud_firestore;
 #endif
 
+#if __has_include(<firebase_auth/FirebaseAuthPlugin.h>)
+#import <firebase_auth/FirebaseAuthPlugin.h>
+#else
+@import firebase_auth;
+#endif
+
 #if __has_include(<firebase_core/FirebaseCorePlugin.h>)
 #import <firebase_core/FirebaseCorePlugin.h>
 #else
@@ -26,6 +32,12 @@
 #import <google_maps_flutter/GoogleMapsPlugin.h>
 #else
 @import google_maps_flutter;
+#endif
+
+#if __has_include(<google_sign_in/GoogleSignInPlugin.h>)
+#import <google_sign_in/GoogleSignInPlugin.h>
+#else
+@import google_sign_in;
 #endif
 
 #if __has_include(<path_provider/PathProviderPlugin.h>)
@@ -63,8 +75,10 @@
 + (void)registerWithRegistry:(NSObject<FlutterPluginRegistry>*)registry {
   [BarcodeScanPlugin registerWithRegistrar:[registry registrarForPlugin:@"BarcodeScanPlugin"]];
   [FLTCloudFirestorePlugin registerWithRegistrar:[registry registrarForPlugin:@"FLTCloudFirestorePlugin"]];
+  [FLTFirebaseAuthPlugin registerWithRegistrar:[registry registrarForPlugin:@"FLTFirebaseAuthPlugin"]];
   [FLTFirebaseCorePlugin registerWithRegistrar:[registry registrarForPlugin:@"FLTFirebaseCorePlugin"]];
   [FLTGoogleMapsPlugin registerWithRegistrar:[registry registrarForPlugin:@"FLTGoogleMapsPlugin"]];
+  [FLTGoogleSignInPlugin registerWithRegistrar:[registry registrarForPlugin:@"FLTGoogleSignInPlugin"]];
   [FLTPathProviderPlugin registerWithRegistrar:[registry registrarForPlugin:@"FLTPathProviderPlugin"]];
   [FLTSharePlugin registerWithRegistrar:[registry registrarForPlugin:@"FLTSharePlugin"]];
   [FLTSharedPreferencesPlugin registerWithRegistrar:[registry registrarForPlugin:@"FLTSharedPreferencesPlugin"]];
